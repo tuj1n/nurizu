@@ -4,31 +4,84 @@
     <meta charset="UTF-8">
     <title>UNRIZU 图床</title>
     <link rel="Shortcut Icon" type="image/x-icon" href="/static/image/favicon.ico">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/notie.css">
     <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="/static/js/main.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <h1>NURIZU</h1>
-            <ul>
-                <li>管理</li>
-            </ul>
-        </nav>
-    </header>
-    <div class="container">
-        <div class="content">
-            <h1>拖动或粘贴以上传</h1>
-            <p>最大支持 20MB 图片，直接的源图片链接， Markdown 代码和 HTML 缩略图显示</p>
-            <a class="btn">立即上传</a>
-            <form id="upload-form" method="post" enctype="multipart/form-data">
-                <input type="file" id="upload" name="image" />
-            </form>
-            <div class="progress">
-            <span id="bar"></span>
-        </div>
+<header>
+    <nav>
+        <h1>NURIZU</h1>
+        <ul>
+            <li>管理</li>
+        </ul>
+    </nav>
+</header>
+<div class="container">
+    <div class="pic">
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12">
+                            <a class="thumbnail">
+                                <img id="upload-img" src="" alt="picture">
+                            </a>
+                            <div class="caption">
+                                <div class="col-xs-12 col-md-12">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="raw-link" />
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" id="copy">
+                                                <span>
+                                                    <img src="/static/image/clippy.svg" width="13" alt="Copy to clipboard">
+                                                </span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                    <br/>
+                                </div>
+                                <div class="col-xs-12 col-md-12">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="markdown" />
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" id="mk-copy">
+                                                <span>
+                                                    <img src="/static/image/clippy.svg" width="13" alt="Copy to clipboard">
+                                                </span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                    <br/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <div class="content">
+        <h1>拖动或粘贴以上传</h1>
+        <p>最大支持 20MB 图片，直接的源图片链接， Markdown 代码和 HTML 缩略图显示</p>
+        <a class="upload-btn">立即上传</a>
+        <form id="upload-form" method="post" enctype="multipart/form-data">
+            <input type="file" id="upload" name="image"/>
+        </form>
+        <div class="progress-wrapper">
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45"
+                     aria-valuemin="0" aria-valuemax="100">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/js/notie.js"></script>
 </body>
 </html>

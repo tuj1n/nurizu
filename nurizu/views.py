@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from nurizu import app
 from nurizu.config import CONFIG
-from flask import render_template, request
+from flask import render_template, request, jsonify
 import os
 import hashlib
 
@@ -21,11 +21,12 @@ def upload():
     image = request.files['image']
     extension = image.filename.split('.')[-1]
 
+    filename = ''
     if image and extension in CONFIG['allowed_extensions']:
         filename = f_hash(str(image.__hash__())) + '.' + extension
         image.save(os.path.join(os.getcwd() + '/' + CONFIG['upload_folder'], filename))
 
-    return 'hello'
+    return jsonify({'url': '/static/pic/' + filename})
 
 
 @app.route('/admin')
