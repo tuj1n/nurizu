@@ -1,2 +1,2 @@
 # nurizu
-Flask 实现的极简tulchan
+Flask 实现的极简图床
