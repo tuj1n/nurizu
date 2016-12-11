@@ -21,8 +21,7 @@ $(function () {
                 }
             }
         });
-
-        // onprogress 方法
+        
         function onprogress(evt) {
             // 已经上传的百分比
             var percent = Math.floor(100 * evt.loaded / evt.total);
